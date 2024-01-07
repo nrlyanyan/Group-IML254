@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<title>Lost Chapters Of Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:wght@600&family=DM+Serif+Display&family=Delicious+Handrawn&family=Gloria+Hallelujah&family=Josefin+Sans:wght@400;500&family=Jost:wght@500&family=League+Spartan:wght@500&family=Love+Ya+Like+A+Sister&family=Merienda&family=Nanum+Pen+Script&family=PT+Serif&family=Poppins:wght@600&family=Redressed&family=Rouge+Script&family=Schoolbell&family=Silkscreen&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+:root{
+--main-color: #d3ad7f;
+--black: #13131a;
+--bg: #010103;
+--border: .1rem solid rgba(255,255,255,.3);
+}
+
+*{
+margin:0; padding:0;
+box-sizing: border-box;
+outline: none; border: none;
+text-decoration: none;
+text-transform: capitalize;
+transition: .2s linear;
+}
+
+html{
+font-size: 62.5%;
+scroll-behavior: smooth;
+scroll-padding-top: 9rem;
+overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+background: #fff;
+border-radius: 5rem;
+}
+
+body{
+background: #EAD3BA;
+}
+
+.heading{
+text-align: center;
+margin-bottom: 5rem;
+}
+
+.heading img{
+height: 10rem;
+margin-bottom: 1rem;
+}
+
+.heading h3{
+font-size: 2rem;
+color: var(--black);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.btn{
+margin-top: 1rem;
+display: inline-block;
+padding: .9rem 3rem;
+font-size: 1.7rem;
+color: #fff;
+background: var(--main-color);
+cursor: pointer;
+}
+
+.btn:hover{
+letter-spacing: .2rem;
+}
+
+.header{
+background: var(--bg);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1.5rem 7%;
+border-bottom: var(--border);
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+}
+
+.header .logo img{
+height: 6rem;
+}
+
+.header .navbar ul{
+list-style: none;
+margin: 0 1rem;
+font-size: 1rem;
+color: #fff;
+font-family: 'Cinzel Decorative', serif;
+font-weight: bold;
+}
+
+.header .navbar ul li{
+position: relative;
+float: left;
+}
+
+header .navbar ul li a{
+font-size: 15px;
+padding: 15px;
+color: white;
+display: block;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem
+}
+
+.header .navbar ul li a.active{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem;
+}
+
+header .navbar ul li ul{
+position: absolute;
+left: 0;
+width: 200px;
+background: var(--bg);
+display: none;
+}
+
+header .navbar ul li ul li{
+width: 100%;
+border-top: 1px solid rgba(0,0,0,.1);
+}
+
+header .navbar ul li ul li ul{
+left: 200px;
+top: 0;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+display: initial;
+}
+
+.header .icons div{
+font-size: 2.5rem;
+color: #fff;
+cursor: pointer;
+margin-left: 2rem;
+}
+
+.header .icons div:hover{
+color:var(--main-color);
+}
+
+#menu-btn{
+display: none;
+}
+
+.header .search-form{
+position: absolute;
+top: 115%; right: 7%;
+background: #fff;
+width: 50rem;
+height: 5rem;
+display: flex;
+align-items: center;
+transform: scaleY(0);
+transform-origin: top;
+}
+
+.header .search-form.active{
+transform: scaleY(1);
+}
+
+.header .search-form input{
+height: 100%;
+width: 100%;
+font-size: 1.6rem;
+color: var(--black);
+padding: 1rem;
+text-transform: none;
+}
+
+.header .search-form label{
+cursor: pointer;
+font-size: 2.2rem;
+margin-right: 1.5rem;
+color: var(--black);
+}
+
+.header .search-form label:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container{
+position: absolute;
+top: 100%; right: -100%;
+height: calc(100vh - 9.5rem);
+width: 35rem;
+background: #fff;
+padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active{
+right:0;
+}
+
+.header .cart-items-container .cart-item{
+position: relative;
+margin: 2rem 0;
+display: flex;
+align-items: center;
+gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-xmark{
+position: absolute;
+top: 1rem; right: 1rem;
+font-size: 2rem;
+cursor: pointer;
+color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-xmark:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+font-size: 1.8rem;
+color: var(--black);
+padding-bottom: .5rem;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .cart-item .content .price{
+font-size: 1.4rem;
+color: #BC9779;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .btn{
+margin-top: 11rem;
+width: 100%;
+text-align: center;
+font-family: 'Poppins', sans-serif;
+}
+
+.home{
+display: flex;
+align-items: center;
+min-height: 75vh;
+background: url(bg14.jpg) no-repeat;
+background-size: cover;
+background-position: center;
+}
+    
+.home .content{
+max-width: 80rem;
+text-align: center;
+justify-content: center;
+}
+    
+.home .content h3{
+font-size: 10rem;
+color: #fff;
+font-family: 'Gloria Hallelujah', cursive;
+margin-left: 60px;
+}
+
+.container{
+min-height: 120vh;
+background-color: #08071d;
+display: flex;
+justify-content: center;
+align-items: center;
+background: url(bg13.jpg) no-repeat center center/cover; 
+}
+
+.container form{
+width: 770px;
+height: 500px;
+display: flex;
+justify-content: center;
+box-shadow: 20px 20px 50px rgba(0,0,0,0.5);
+border-radius: 15px;
+background: rgba(255,255,255,0.1);
+backdrop-filter: blur(10px);
+flex-wrap: wrap;
+}
+
+.container form h1{
+color: white;
+font-weight: 500;
+margin-top: 20px;
+width: 500px;
+text-align: center;
+font-family: 'Nanum Pen Script', cursive;
+font-size: 5rem;
+}
+
+.container form input{
+width: 290px;
+height: 40px;
+padding-left: 10px;
+outline: none;
+border: none;
+font-size: 15px;
+margin-bottom: 10px;
+background: none;
+border-bottom: 2px solid #fff;
+}
+
+.container form input::placeholder{
+color: #ddd;
+}
+
+.container form #lastName,
+.container form #mobile{
+margin-left: 20px;
+}
+
+.container form h4{
+color: #fff;
+font-weight: 300;
+width: 600px;
+margin-top: 20px;
+font-size: 2rem;
+}
+
+.container form textarea{
+background: none;
+border: none;
+border-bottom: 2px solid #fff;
+color: #fff;
+font-weight: 200;
+font-size: 15px;
+padding: 10px;
+outline: none;
+min-width: 600px;
+max-width: 600px;
+min-height: 80px;
+max-height: 80px;
+}
+
+textarea::-webkit-scrollbar{
+width: 1em;
+}
+
+textarea::-webkit-scrollbar-thumb{
+background-color: rgba(194,194,194,0.713);
+}
+
+.container form #button{
+border: none;
+background: #fff;
+border-radius: 5px;
+margin-top: 20px;
+font-weight: 600;
+font-size: 20px;
+color: #333;
+width: 100px;
+padding: 0;
+margin-right: 500px;
+margin-bottom: 30px;
+transition: 0.3s;
+}
+
+.container form #button:hover{
+opacity: 0.7;
+}
+
+.contact{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 3rem;
+margin-bottom: 5rem;
+}
+
+.contact .content{
+flex: 1 1 45rem;
+}
+        
+.contact .content h2{
+font-size: 4rem;
+color: var(--black);
+font-family: 'Cinzel Decorative', serif;
+padding-bottom: 0rem;
+padding-left: 4rem;
+padding-top: 5rem;
+text-align: center;
+}
+
+.footerContainer{
+margin-top: 7rem;
+width: 100%;
+padding: 30px 30px 20px;
+background-color: #000;
+}
+
+.footerContainer .footerNav{
+margin: 20px 0;
+margin-bottom: 5px;
+}
+
+.footerContainer .footerNav ul{
+display: flex;
+justify-content: center;
+}
+
+.footerContainer .footerNav ul li a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 2.2em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerNav ul li a:hover{
+opacity: 1;
+}
+
+.footerContainer .box{
+display: flex;
+justify-content: center;
+}
+
+.footerContainer .box a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 1.8em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .box a i{
+color: #57AF52;
+padding-right: .7rem;
+}
+
+.footerContainer .box a:hover i{
+color: #E8940A;
+transition: 0.5s;
+}
+
+.footerContainer .footerBottom{
+padding: 20px;
+text-align: center;
+}
+
+.footerContainer .footerBottom p{
+color: white;
+font-size: 1.8em;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerBottom span{
+color: #FBC73B;
+font-size: 1em;
+font-family: 'Afacad', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+html{
+font-size: 55%;
+}
+
+.header{
+padding: 1.5rem 2rem;
+}
+
+section{
+padding: 2rem;
+}
+}
+
+@media (max-width:768px){
+#menu-btn{
+display: inline-block;
+}
+
+.header .navbar{
+position: absolute;
+top:100%; right: -100%;
+background: #fff;
+width: 30rem;
+height: calc(200vh - 9.5rem);
+}
+
+.header .navbar.active{
+right: 0;
+}
+
+.header .navbar ul li{
+width: 100%;
+}
+
+.header .navbar ul li a{
+color: black;
+width: 100%;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+width: 100%;
+}
+
+.header .navbar ul li ul{
+position: relative;
+width: 100%;
+color: #fff;
+}
+
+.header .navbar ul li ul li{
+background: #EACAA6;
+}
+
+.header .navbar ul li ul li a{
+color: #333;
+}
+
+.header .navbar ul li ul li a:hover{
+color: #fff;
+}
+
+.header .navbar ul li ul li ul{
+width: 100%;
+left: 0;
+}
+
+.header .search-form{
+width: 90%;
+right: 2rem;
+}
+
+.home{
+background-position: left;
+justify-content: center;
+text-align: center;
+}
+
+.home .content h3{
+font-size: 5rem;
+}
+.home .content span{
+font-size: 2.3rem;
+}
+
+.about .content h3{
+font-size: 3rem;
+}
+}
+
+@media (max-width:450px){
+html{
+font-size: 50%;
+}
+.heading h3{
+font-size: 3rem;
+}
+}
+
+</style>
+<body>
+
+<header class="header">
+
+<a href="#" class="logo">
+<img src="logo2.png" alt="">
+</a>
+
+<nav class="navbar">
+<ul>
+<li><a href="index.html">Home +</a>
+<ul>
+<li><a href="#whychooseus?">For Book Lovers</a></li>
+<li><a href="#collectionlist">Collection List</a></li>
+<li><a href="#featuredbooks">Featured Books</a></li>
+<li><a href="#specialday">Special Day, Special Book</a></li>
+</ul>
+</li>
+<li><a href="bestseller.html">Best Seller +</a>
+<ul>
+<li><a href="#top5">Top 5 Best Seller</a></li>
+<li><a href="#book">Book of the Year</a></li>
+<li><a href="#author">Author of the Year</a></li>
+</ul>
+</li>
+<li><a href="fictions.html">Fictions +</a>
+<ul>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#horror">Horror</a></li>
+<li><a href="#mystery">Mystery</a></li>
+<li><a href="#thriller">Thriller</a></li>
+<li><a href="#scifi">Sci-Fi</a></li>
+<li><a href="#dystopian">Dystopian</a></li>
+<li><a href="#action">Action</a></li>
+</ul>
+</li>
+<li><a href="newarrivals.html">New Arrivals +</a>
+<ul>
+<li><a href="#scifi">Science Fiction</a></li>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#domestic">Domestic Fiction</a></li>
+<li><a href="#literary">Literary</a></li>
+</ul>
+</li>
+<li><a href="aboutus.html">About Us +</a>
+<ul>
+<li><a href="#prologue">Prologue</a></li>
+<li><a href="#ourteam">Our Team</a></li>
+</ul>
+</li>
+<li><a href="#"class="active">Contact +</a>
+<ul>
+<li><a href="#messenger">Messenger Owl</a></li>
+<li><a href="#gform">Google Form</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+<div class="icons">
+<div class="fa-solid fa-magnifying-glass" id="search-btn"></div>
+<div class="fa-solid fa-cart-shopping" id="cart-btn"></div>
+<div class="fa-solid fa-bars" id="menu-btn"></div>
+</div>
+
+<div class="search-form">
+<input type="search" id="search-box" placeholder="search here...">
+<label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+</div>
+
+<div class="cart-items-container">
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="romance8.jpg" alt="">
+<div class="content">
+<h3>Archer's Voice</h3>
+<div class="price">RM38.01</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="fantasy6.jpg" alt="">
+<div class="content">
+<h3>Powerless</h3>
+<div class="price">RM60.00</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="horror3.jpg" alt="">
+<div class="content">
+<h3>Naomi's Room</h3>
+<div class="price">RM45.10</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="mystery5.jpg" alt="">
+<div class="content">
+<h3>Local Woman Missing</h3>
+<div class="price">RM45.00</div>
+</div>
+</div>
+<a href="#" class="btn">checkout now</a>
+</div>
+
+</header>
+
+<section id="home" class="home">
+  <div class="content">
+     <h3>CONTACT US</h3>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <form>
+      <h1><a name="messenger">Messenger Owl</a></h1>
+      <input type="text" id="firstName" placeholder="First Name" required>
+      <input type="text" id="lastName" placeholder="Last Name" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="mobile" placeholder="Mobile" required>
+      <h4> Type Your Message Here....</h4>
+      <textarea required></textarea>
+      <input type="submit" value="Send" id="button">
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <div class="content">
+       <h2><a name="gform">Google Form</a></h2>
+       <br>
+     <ul align="center">
+      <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWr_w9D346NSQUY8oNSffHd2lIH3kLz8Rgdx1EF8wl5FSrw/viewform?usp=sf_link" ><font size="20">Order Here</font></a></li>
+     </ul>
+  </div>
+</section>
+
+<section class="footerContainer">
+<div class="box">
+<a href="#"> <i class="fa-solid fa-phone"></i> +60 11-2345 6789 </a>
+<a href="#"> <i class="fa-solid fa-envelope"></i> LCOWbookstore@gmail.com </a>
+<a href="https://www.instagram.com/grey._.poetries?igsh=MWttdGFzejg0cmk1cg==" target="_blank"><i class="fa-brands fa-square-instagram" target="_blank"></i> Instagram </a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWr_w9D346NSQUY8oNSffHd2lIH3kLz8Rgdx1EF8wl5FSrw/viewform?usp=sf_link" target="_blank"><i class="fa-solid fa-clipboard"></i> Order Form </a>
+</div>
+
+<div class="footerNav">
+<ul>
+<li><a href=""> Home </a></li>
+<li><a href="bestseller.html"> Best Seller </a></li>
+<li><a href="fictions.html"> Fictions </a></li>
+<li><a href="newarrivals.html"> New Arrivals </a></li>
+<li><a href="aboutus.html"> About </a></li>
+<li><a href="contact.html"> Contact </a></li>
+</ul>
+</div>
+
+<div class="footerBottom"> 
+<p>Copyright @2024; <span> Lost Chapters of World.</span> All Right Reserved!</p>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+navbar.classList.toggle('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+searchForm.classList.toggle('active');
+navbar.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let cartItem = document.querySelector('.cart-items-container');
+
+document.querySelector('#cart-btn').onclick = () =>{
+cartItem.classList.toggle('active');
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+}
+
+window.onscroll = () => {
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

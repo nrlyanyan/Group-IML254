@@ -1,0 +1,1753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<title>Lost Chapters Of Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:wght@600&family=DM+Serif+Display&family=Delicious+Handrawn&family=Gloria+Hallelujah&family=Josefin+Sans:wght@400;500&family=Jost:wght@500&family=League+Spartan:wght@500&family=Love+Ya+Like+A+Sister&family=Merienda&family=Nanum+Pen+Script&family=PT+Serif&family=Poppins:wght@600&family=Rancho&family=Redressed&family=Rouge+Script&family=Schoolbell&family=Silkscreen&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+:root{
+--main-color: #d3ad7f;
+--black: #13131a;
+--bg: #010103;
+--border: .1rem solid rgba(255,255,255,.3);
+--border: .1rem solid rgba(0,0,0,.1);
+--border-hover: .1rem solid var(--black);
+--box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+*{
+margin:0; padding:0;
+box-sizing: border-box;
+outline: none; border: none;
+text-decoration: none;
+text-transform: capitalize;
+transition: .2s linear;
+}
+
+html{
+font-size: 62.5%;
+scroll-behavior: smooth;
+scroll-padding-top: 9rem;
+overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+background: #fff;
+border-radius: 5rem;
+}
+
+body{
+background: #EAD3BA;
+}
+
+section{
+padding: 2rem 7%;
+}
+
+.heading{
+text-align: center;
+margin-bottom: 5rem;
+}
+
+.heading img{
+height: 10rem;
+margin-bottom: 1rem;
+}
+
+.heading h3{
+font-size: 2rem;
+color: var(--black);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.btn{
+margin-top: 1rem;
+display: inline-block;
+padding: .9rem 3rem;
+font-size: 1.7rem;
+color: #fff;
+background: var(--main-color);
+cursor: pointer;
+}
+
+.btn:hover{
+letter-spacing: .2rem;
+}
+
+.header{
+background: var(--bg);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1.5rem 7%;
+border-bottom: var(--border);
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+}
+
+.header .logo img{
+height: 6rem;
+}
+
+.header .navbar ul{
+list-style: none;
+margin: 0 1rem;
+font-size: 1rem;
+color: #fff;
+font-family: 'Cinzel Decorative', serif;
+font-weight: bold;
+}
+
+.header .navbar ul li{
+position: relative;
+float: left;
+}
+
+.header .navbar ul li a{
+font-size: 17px;
+padding: 15px;
+color: white;
+display: block;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem
+}
+
+.header .navbar ul li a.active{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem;
+}
+
+.header .navbar ul li ul{
+position: absolute;
+left: 0;
+width: 200px;
+background: var(--bg);
+display: none;
+}
+
+.header .navbar ul li ul li{
+width: 100%;
+border-top: 1px solid rgba(0,0,0,.1);
+}
+
+.header .navbar ul li ul li ul{
+left: 200px;
+top: 0;
+}
+
+.header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+display: initial;
+}
+
+.header .icons div{
+font-size: 2.5rem;
+color: #fff;
+cursor: pointer;
+margin-left: 2rem;
+}
+
+.header .icons div:hover{
+color:var(--main-color);
+}
+
+#menu-btn{
+display: none;
+}
+
+.header .search-form{
+position: absolute;
+top: 115%; right: 7%;
+background: #fff;
+width: 50rem;
+height: 5rem;
+display: flex;
+align-items: center;
+transform: scaleY(0);
+transform-origin: top;
+}
+
+.header .search-form.active{
+transform: scaleY(1);
+}
+
+.header .search-form input{
+height: 100%;
+width: 100%;
+font-size: 1.6rem;
+color: var(--black);
+padding: 1rem;
+text-transform: none;
+}
+
+.header .search-form label{
+cursor: pointer;
+font-size: 2.2rem;
+margin-right: 1.5rem;
+color: var(--black);
+}
+
+.header .search-form label:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container{
+position: absolute;
+top: 100%; right: -100%;
+height: calc(100vh - 9.5rem);
+width: 35rem;
+background: #fff;
+padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active{
+right:0;
+}
+
+.header .cart-items-container .cart-item{
+position: relative;
+margin: 2rem 0;
+display: flex;
+align-items: center;
+gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-xmark{
+position: absolute;
+top: 1rem; right: 1rem;
+font-size: 2rem;
+cursor: pointer;
+color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-xmark:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+font-size: 2rem;
+color: var(--black);
+padding-bottom: .5rem;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .cart-item .content .price{
+font-size: 1.5rem;
+color: #BC9779;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .btn{
+margin-top: 18rem;
+width: 100%;
+text-align: center;
+font-family: 'Poppins', sans-serif;
+}
+
+.home{
+display: flex;
+align-items: center;
+min-height: 100vh;
+background: url(bg9.jpg) no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+.home .content{
+max-width: 80rem;
+text-align: center;
+}
+
+.home .content h3{
+font-size: 7rem;
+color: #fff;
+font-family: 'Redressed', cursive;
+}
+
+.home .content span{
+font-size: 2.6rem;
+color: #F1AB60;
+padding: 1rem 0;
+line-height: 1.5;
+font-family: 'Crimson Text', serif;
+}
+
+.icons-container{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+gap: 1.5rem;
+}
+
+.icons-container .icons1{
+display: flex;
+align-items: center;
+gap: 1.5rem;
+padding: 2rem 0;
+}
+
+.icons-container .icons1 i{
+font-size: 3.5rem;
+color: #825C2C;
+}
+
+.icons-container .icons1 h3{
+font-size: 2.9rem;
+color: var(--black);
+padding-bottom: .5rem;
+font-family: 'Redressed', cursive;
+}
+
+.icons-container .icons1 p{
+font-size: 1.8rem;
+color: #53473A;
+padding-bottom: .5rem;
+font-family: 'League Spartan', sans-serif;
+}
+
+.about{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 4rem;
+margin-bottom: 3rem;
+}
+
+.about .row{
+display: flex;
+align-items: center;
+gap: 3rem;
+flex-wrap: wrap;
+padding: 3rem 0;
+padding-bottom: 10rem;
+height: 800px;
+}
+
+.about .row .video-container{
+flex: 1 1 40rem;
+position: relative;
+padding-left: 50px;
+}
+
+.about .row .video-container video{
+width: 90%;
+border: 1.2rem solid #fff;
+border-radius: .5rem;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.3);
+height: 100%;
+}
+
+.about .content{
+flex: 1 1 45rem;
+}
+
+.about .content h3{
+font-size: 4rem;
+color: var(--black);
+font-family: 'Cinzel Decorative', serif;
+padding-bottom: 1rem;
+}
+
+.about .content p{
+padding: 1rem 0;
+line-height: 1.8;
+color: #53473A;
+font-size: 2rem;
+text-transform: none;
+}
+
+.about .content .btn{
+margin-top: 1rem;
+display: inline-block;
+padding: .9rem 4rem;
+font-size: 2.2rem;
+color: #fff;
+background: #927043;
+cursor: pointer;
+border-radius: 30rem;
+font-family: 'Rancho', cursive;
+}
+
+.about .content .btn:hover{
+letter-spacing: .2rem;
+}
+
+.facility .box-container{
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+gap: 1rem;
+align-items: flex-start;
+gap: 2.5rem;
+}
+
+.facility .box-container .box{
+text-align: center;
+}
+
+.facility .box-container .box img{
+height: 10rem;
+margin-bottom: .5rem;
+}
+
+.facility .box-container .box h3{
+font-size: 2rem;
+color: var(--black);
+font-family: 'Merienda', cursive;
+margin: 1rem 0;
+}
+
+.facility .box-container .box p{
+line-height: 2;
+font-size: 1.6rem;
+color: #53473A;
+font-family: 'League Spartan', sans-serif;
+text-transform: none;
+}
+
+.heading1{
+text-align: center;
+margin-top: 5rem;
+margin-bottom: 4rem;
+}
+
+.heading1 img{
+height: 15rem;
+margin-bottom: 1rem;
+}
+
+.heading1 h3{
+font-size: 2rem;
+color: var(--black);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.banner1 .box-container{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+margin-bottom: 3rem;
+}
+
+.banner1 .box-container .box{
+flex: 1 1 40rem;
+}
+
+.banner1 .box-container .box img{
+width: 100%;
+}
+
+.heading3{
+text-align: center;
+margin-bottom: 5rem;
+position: relative;
+}
+
+.heading3::before{
+content: '';
+position: absolute;
+top: 50%; left:0;
+transform: translateY(-50%);
+width: 100%;
+height:.01rem;
+background: rgba(0,0,0,.1);
+z-index: -1;
+}
+
+.heading3 span{
+font-size: 2.8rem;
+padding: .5rem 2rem;
+color: var(--black);
+background: #fff;
+border: var(--border);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.arrivals .arrivals-slider .box{
+display: flex;
+align-items: center;
+gap: 1.5rem;
+padding: 2rem 1rem;
+border: var(--border);
+margin: 1rem 0;
+overflow: hidden;
+background: linear-gradient(15deg, #fff 100%, #fff 100%);
+}
+
+.arrivals .arrivals-slider .box:hover{
+border: var(--border-hover);
+}
+
+.arrivals .arrivals-slider .box .image img{
+height: 15rem;
+}
+
+.arrivals .arrivals-slider .box .content h3{
+font-size: 2rem;
+color: var(--black);
+font-family: 'League Spartan', sans-serif;
+margin-bottom: 1rem;
+}
+
+.arrivals .arrivals-slider .box .content .price{
+font-size: 1.9rem;
+color: var(--black);
+padding-bottom: 1rem;
+font-family: 'League Spartan', sans-serif;
+}
+
+.arrivals .arrivals-slider .box .content .price span{
+font-size: 1.4rem;
+color: #A4A2A0;
+text-decoration: line-through;
+}
+
+.arrivals .arrivals-slider .box .content .stars i{
+font-size:1.5rem;
+color: #FFCC0E;
+}
+
+.heading4{
+text-align: center;
+margin-bottom: 4rem;
+position: relative;
+}
+
+.heading4::before{
+content: '';
+position: absolute;
+top: 50%; left:0;
+transform: translateY(-50%);
+width: 100%;
+height:.01rem;
+background: rgba(0,0,0,.1);
+z-index: -1;
+}
+
+.heading4 span{
+font-size: 2.8rem;
+padding: .5rem 2rem;
+color: var(--black);
+background: #fff;
+border: var(--border);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.gallery p{
+text-align: center;
+margin-bottom: 2.8rem;
+position: relative;
+font-size: 2.5rem;
+color: var(--black);
+font-family: 'Merienda', cursive;
+text-transform: none;
+}
+
+.gallery .box-container{
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+.gallery .box-container .box{
+height: 50rem;
+flex: 1 1 40rem;
+border: 1rem solid #fff;
+box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+border-radius: .5rem;
+position: relative;
+overflow: hidden;
+}
+
+.gallery .box-container .box img{
+height: 100%;
+width: 100%;
+object-fit: cover;
+}
+
+.gallery .box-container .box .content{
+position: absolute;
+top: -100%; left: 0;
+height: 100%;
+width: 100%;
+background: rgba(255,255,255,.9);
+padding: 2rem;
+padding-top: 18rem;
+text-align: center;
+}
+
+.gallery .box-container .box .content h3{
+font-size: 2.7rem;
+color: #333;
+font-family: 'Merienda', cursive;
+}
+
+.gallery .box-container .box .content p{
+font-size: 1.4rem;
+color: #666;
+padding: 1rem 0;
+font-family: 'Jost', sans-serif;
+}
+
+.gallery .box-container .box:hover .content{
+top: 0;
+}
+
+.footerContainer{
+margin-top: 7rem;
+width: 100%;
+padding: 30px 30px 20px;
+background-color: #000;
+}
+
+.footerContainer .footerNav{
+margin: 20px 0;
+margin-bottom: 5px;
+}
+
+.footerContainer .footerNav ul{
+display: flex;
+justify-content: center;
+}
+
+.footerContainer .footerNav ul li a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 2.2em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerNav ul li a:hover{
+opacity: 1;
+}
+
+.footerContainer .box{
+display: flex;
+justify-content: center;
+}
+
+.footerContainer .box a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 1.8em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .box a i{
+color: #57AF52;
+padding-right: .7rem;
+}
+
+.footerContainer .box a:hover i{
+color: #E8940A;
+transition: 0.5s;
+}
+
+.footerContainer .footerBottom{
+padding: 20px;
+text-align: center;
+}
+
+.footerContainer .footerBottom p{
+color: white;
+font-size: 1.8em;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerBottom span{
+color: #FBC73B;
+font-size: 1em;
+font-family: 'Afacad', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+html{
+font-size: 55%;
+}
+
+.header{
+padding: 1.5rem 2rem;
+}
+
+section{
+padding: 2rem;
+}
+}
+
+@media (max-width:768px){
+#menu-btn{
+display: inline-block;
+}
+
+.header .navbar{
+position: absolute;
+top:100%; right: -100%;
+background: #fff;
+width: 30rem;
+height: calc(200vh - 8.5rem);
+}
+
+.header .navbar.active{
+right: 0;
+}
+
+.header .navbar ul li{
+width: 100%;
+}
+
+.header .navbar ul li a{
+color: black;
+width: 100%;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+width: 100%;
+}
+
+.header .navbar ul li ul{
+position: relative;
+width: 100%;
+color: #fff;
+}
+
+.header .navbar ul li ul li{
+background: #EACAA6;
+}
+
+.header .navbar ul li ul li a{
+color: #333;
+}
+
+.header .navbar ul li ul li a:hover{
+color: #fff;
+}
+
+.header .navbar ul li ul li ul{
+width: 100%;
+left: 0;
+}
+
+.header .search-form{
+width: 90%;
+right: 2rem;
+}
+
+.home{
+background-position: left;
+justify-content: center;
+text-align: center;
+}
+
+.home .content h3{
+font-size: 8rem;
+}
+
+.home .content span{
+font-size: 2.3rem;
+}
+
+.about .content h3{
+font-size: 3rem;
+}
+.footerContainer{
+width: 100%;
+text-align: center;
+}
+.footerContainer .footerNav ul{
+flex-direction: column;
+}
+.footerContainer .footerNav ul li{
+width: 100%;
+text-align: center;
+margin 8px;
+}
+.footerContainer .box a{
+color: white;
+margin: 2%;
+padding-top: 2rem;
+}
+}
+
+@media (max-width:450px){
+html{
+font-size: 50%;
+}
+.heading h3{
+font-size: 3rem;
+}
+}
+
+</style>
+<body>
+
+<header class="header">
+
+<a href="#" class="logo">
+<img src="logo2.png" alt="">
+</a>
+
+<nav class="navbar">
+<ul>
+<li><a href="#"class="active">Home +</a>
+<ul>
+<li><a href="#whychooseus?">For Book Lovers</a></li>
+<li><a href="#collectionlist">Collection List</a></li>
+<li><a href="#featuredbooks">Featured Books</a></li>
+<li><a href="#specialday">Special Day, Special Book</a></li>
+</ul>
+</li>
+<li><a href="bestseller.html">Best Seller +</a>
+<ul>
+<li><a href="#top5">Top 5 Best Seller</a></li>
+<li><a href="#book">Book of the Year</a></li>
+<li><a href="#author">Author of the Year</a></li>
+</ul>
+</li>
+<li><a href="fictions.html">Fictions +</a>
+<ul>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#horror">Horror</a></li>
+<li><a href="#mystery">Mystery</a></li>
+<li><a href="#thriller">Thriller</a></li>
+<li><a href="#scifi">Sci-Fi</a></li>
+<li><a href="#dystopian">Dystopian</a></li>
+<li><a href="#action">Action</a></li>
+</ul>
+</li>
+<li><a href="newarrivals.html">New Arrivals +</a>
+<ul>
+<li><a href="#scifi">Science Fiction</a></li>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#domestic">Domestic Fiction</a></li>
+<li><a href="#literary">Literary</a></li>
+</ul>
+</li>
+<li><a href="aboutus.html">About Us +</a>
+<ul>
+<li><a href="#prologue">Prologue</a></li>
+<li><a href="#ourteam">Our Team</a></li>
+</ul>
+</li>
+<li><a href="contact.html">Contact +</a>
+<ul>
+<li><a href="#messenger">Messenger Owl</a></li>
+<li><a href="#gform">Google Form</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+<div class="icons">
+<div class="fa-solid fa-magnifying-glass" id="search-btn"></div>
+<div class="fa-solid fa-cart-shopping" id="cart-btn"></div>
+<div class="fa-solid fa-bars" id="menu-btn"></div>
+</div>
+
+<div class="search-form">
+<input type="search" id="search-box" placeholder="search here...">
+<label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+</div>
+
+<div class="cart-items-container">
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="romance8.jpg" alt="">
+<div class="content">
+<h3>Archer's Voice</h3>
+<div class="price">RM38.01</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="fantasy6.jpg" alt="">
+<div class="content">
+<h3>Powerless</h3>
+<div class="price">RM60.00</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="horror3.jpg" alt="">
+<div class="content">
+<h3>Naomi's Room</h3>
+<div class="price">RM45.10</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="mystery5.jpg" alt="">
+<div class="content">
+<h3>Local Woman Missing</h3>
+<div class="price">RM45.00</div>
+</div>
+</div>
+<a href="#" class="btn">checkout now</a>
+</div>
+
+</header>
+
+<section class="home" id="home">
+<div class="content">
+<h3>Lost Chapters Of Worlds</h3>
+<span>"A book is a gift you can<br>open again and again"</span>
+</div>
+</section>
+
+<section class="icons-container">
+
+<div class="icons1">
+<i class="fa-solid fa-truck-fast"></i>
+<div class="content1">
+<h3>free shipping<h3>
+<p>order over RM100</p>
+</div>
+</div>
+
+<div class="icons1">
+<i class="fa-solid fa-lock"></i>
+<div class="content1">
+<h3>secure payment<h3>
+<p>100 secure payment</p>
+</div>
+</div>
+
+<div class="icons1">
+<i class="fa-solid fa-rotate-right"></i>
+<div class="content1">
+<h3>easy returns<h3>
+<p>10 days returns</p>
+</div>
+</div>
+
+<div class="icons1">
+<i class="fa-solid fa-headset"></i>
+<div class="content1">
+<h3>24/7 support<h3>
+<p>call us anytime</p>
+</div>
+</div>
+
+</section>
+
+<section class="about" id="about">
+<div class="row">
+<div class="video-container">
+<video src="video1.mp4" loop autoplay muted></video>
+<audio controls autoplay loop>
+  <source src="Hedwig's Theme.mp3" type="audio/mp3">
+</audio>
+</div>
+
+<div class="content">
+<h3><a name="booklovers">A Haven for Book Lovers</a></h3>
+<p>"Lost Chapters of Worlds" stands as a beacon for those enamored with the mystique of literature. Stepping into this dark academia-themed bookstore is like entering a secret society of literary aficionados. The shelves, adorned with antique tomes and dust-kissed classics, whisper tales of forgotten realms and untold mysteries. From Gothic novels to cosmic horror, Lost Chapters of Worlds specializes exclusively in fiction, offering a haven for devotees of imaginative storytelling.</p>
+<a href="aboutus.html" class="btn">About Us</a>
+</div>
+</section>
+
+<section class="facility">
+<div class="heading">
+<img src="a10.png" alt="">
+<h3><a name="collectionlist">Collection List</a></h3>
+</div>
+
+<div class="box-container">
+<div class="box">
+<img src="b1.png" alt="">
+<h3>Romance</h3>
+<p>Love is a universal theme that transcends cultural and linguistic boundaries.</p>
+</div>
+
+<div class="box">
+<img src="b2.png" alt="">
+<h3>Fantasy</h3>
+<p>The genre celebrates creativity and allows authors to push the boundaries of imagination and storytelling.</p>
+</div>
+
+<div class="box">
+<img src="b3.png" alt="">
+<h3>Horror</h3>
+<p>Horror fiction allows readers to confront the unthinkable.</p>
+</div>
+
+<div class="box">
+<img src="b4.png" alt="">
+<h3>Mystery</h3>
+<p>Mystery fiction inviting readers to actively participate in solving the puzzle alongside the characters.</p>
+</div>
+
+<div class="box">
+<img src="b5.png" alt="">
+<h3>Thriller</h3>
+<p>The gripping and fast-paced nature of thrillers makes them page-turners.</p>
+</div>
+
+<div class="box">
+<img src="b6.png" alt="">
+<h3>Sci-Fi</h3>
+<p>Science fiction enables readers to explore the unknown.</p>
+</div>
+
+<div class="box">
+<img src="b7.png" alt="">
+<h3>Dystopian</h3>
+<p>Dystopian fiction often explores themes of human resilience & survival.</p>
+</div>
+
+<div class="box">
+<img src="b8.png" alt="">
+<h3>Action</h3>
+<p>The genre often presents high-stakes scenarios, such as life-or-death situations, epic battles.</p>
+</div>
+
+</div>
+</section>
+
+<section class="banner1">
+<div class="heading1">
+<img src="a9.png" alt="">
+<h3>build your own dark academia library</h3>
+</div>
+
+<div class="box-container">
+<div class="box">
+<img src="bg10.jpg" align="center">
+</div>
+</div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading3"><a name="featuredbooks"><span>featured books</span></a></h1>
+<div class="swiper arrivals-slider">
+<div class="swiper-wrapper">
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="romance1.jpg" alt="">
+</div>
+<div class="content">
+<h3>Things We Never Got Over</h3>
+<div class="price">RM36.72 <span>RM46.72</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book15.jpg" alt="">
+</div>
+<div class="content">
+<h3>Catherine House</h3>
+<div class="price">RM57.26 <span>RM124.90</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book45.jpg" alt="">
+</div>
+<div class="content">
+<h3>Late Nights on Air</h3>
+<div class="price">RM36.72 <span>RM46.72</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book19.jpg" alt="">
+</div>
+<div class="content">
+<h3>Desires of the Dead</h3>
+<div class="price">RM19.69 <span>RM56.90</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book53.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Spellman Files</h3>
+<div class="price">RM36.72 <span>RM46.72</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book13.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Silent Patient</h3>
+<div class="price">RM18.99 <span>RM59.90</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book28.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Darkest Mind</h3>
+<div class="price">RM42.90 <span>RM452.90</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book51.jpg" alt="">
+</div>
+<div class="content">
+<h3>Beside A Burning Sea</h3>
+<div class="price">RM28.40 <span>RM55.80</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book56.jpg" alt="">
+</div>
+<div class="content">
+<h3>I Am Number Four</h3>
+<div class="price">RM15.50 <span>RM46.70</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book30.jpg" alt="">
+</div>
+<div class="content">
+<h3>Last Days</h3>
+<div class="price">RM26.90 <span>RM42.50</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+</div>
+
+<div class="swiper arrivals-slider">
+<div class="swiper-wrapper">
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book33.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Dispossessed</h3>
+<div class="price">RM32.00 <span>RM58.00</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book23.jpg" alt="">
+</div>
+<div class="content">
+<h3>Muse of Nightmares</h3>
+<div class="price">RM31.05 <span>RM54.90</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book59.jpg" alt="">
+</div>
+<div class="content">
+<h3>Help Me, Jacques Cousteau</h3>
+<div class="price">RM20.45 <span>RM40.55</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="horror7.jpg" alt="">
+</div>
+<div class="content">
+<h3>Dead Inside</h3>
+<div class="price">RM55.70 <span>RM66.70</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book31.jpg" alt="">
+</div>
+<div class="content">
+<h3>Watching You</h3>
+<div class="price">RM31.65 <span>RM41.65</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book26.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Drowning Woman</h3>
+<div class="price">RM44.84 <span>RM64.84</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book61.jpg" alt="">
+</div>
+<div class="content">
+<h3>Me and Kaminski</h3>
+<div class="price">RM20.88 <span>RM52.67</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="scifi3.jpg" alt="">
+</div>
+<div class="content">
+<h3>Dune</h3>
+<div class="price">RM88.18 <span>RM97.28</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="scifi5.jpg" alt="">
+</div>
+<div class="content">
+<h3>Hyperion</h3>
+<div class="price">RM55.03 <span>RM69.01</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book20.jpg" alt="">
+</div>
+<div class="content">
+<h3>Just My Type</h3>
+<div class="price">RM22.30 <span>RM63.55</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+</div>
+
+<div class="swiper arrivals-slider">
+<div class="swiper-wrapper">
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="romance8.jpg" alt="">
+</div>
+<div class="content">
+<h3>Archer's Voice</h3>
+<div class="price">RM38.01 <span>RM48.01</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="scifi8.jpg" alt="">
+</div>
+<div class="content">
+<h3>Ten Low</h3>
+<div class="price">RM40.13 <span>RM55.10</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="dystopian8.jpg" alt="">
+</div>
+<div class="content">
+<h3>Delirium</h3>
+<div class="price">RM33.33 <span>RM44.44</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book57.jpg" alt="">
+</div>
+<div class="content">
+<h3>Out of the Blue</h3>
+<div class="price">RM34.50 <span>RM46.70</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book62.jpg" alt="">
+</div>
+<div class="content">
+<h3>More Than It Hurts You</h3>
+<div class="price">RM18.25 <span>RM36.85</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="dystopian4.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Program</h3>
+<div class="price">RM79.16 <span>RM92.64</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="book58.jpg" alt="">
+</div>
+<div class="content">
+<h3>The One Hundred Year Old Man Who Climbed Out The Window and Disappeared</h3>
+<div class="price">RM32.30 <span>RM52.67</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="horror8.jpg" alt="">
+</div>
+<div class="content">
+<h3>No One Rides For Free</h3>
+<div class="price">RM31.65 <span>RM41.65</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="mystery4.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Other Mrs.</h3>
+<div class="price">RM55.00 <span>RM70.0</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+
+<a href="#" class="swiper-slide box">
+<div class="image">
+<img src="thriller6.jpg" alt="">
+</div>
+<div class="content">
+<h3>The Inmate</h3>
+<div class="price">RM58.02 <span>RM75.03</span></div>
+<div class="stars">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half"></i>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+
+<section class="gallery" id="gallery">
+<h1 class="heading4"><a name="specialday"><span>Special Day, Special Book</span></a></h1>
+<p>Pick up a new book according to your favourite holiday season from this fun collection!</p>
+<div class="box-container">
+<div class="box">
+<img src="img5.jpg" alt="">
+<div class="content">
+<h3>Valentine's Day</h3>
+<p>We think gifts for your favorite person should be nothing if not unique, and our Valentine's Day books are certainly that.</p>
+</div>
+</div>
+
+<div class="box">
+<img src="img11.jpg" alt="">
+<div class="content">
+<h3>Summer Holiday!</h3>
+<p>Find your novels about summer vacation perfect for your next getaway. A summer read is a book that is read during the summer. Traditionally, it is a lighthearted and fun book.</p>
+</div>
+</div>
+
+<div class="box">
+<img src="img7.jpg" alt="">
+<div class="content">
+<h3>Christmas Day</h3>
+<p>Why give books as gifts? Giving the gift of reading is a great way to get children into books. It makes books feel extra-special when they're wrapped up as a present and given with love. </p>
+</div>
+</div>
+
+<div class="box">
+<img src="img8.jpg" alt="">
+<div class="content">
+<h3>Halloween Day</h3>
+<p>One possible origin for telling scary stories around Halloween is found thousands of years ago with the Celts of ancient Ireland!</p>
+</div>
+</div>
+
+<div class="box">
+<img src="img9.jpg" alt="">
+<div class="content">
+<h3>Friendship Day</h3>
+<p>Reading books that focus on friendship can help your child develop important social and emotional skills.</p>
+</div>
+</div>
+
+<div class="box">
+<img src="img10.jpg" alt="">
+<div class="content">
+<h3>Single's Day</h3>
+<p>Whether it's through the comfort of a favorite book or through an emotional connection to relatable characters, books provide a stable source of companionship during the times that you feel the only person you can count on is yourself.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="footerContainer">
+<div class="box">
+<a href="#"> <i class="fa-solid fa-phone"></i> +60 11-2345 6789 </a>
+<a href="#"> <i class="fa-solid fa-envelope"></i> LCOWbookstore@gmail.com </a>
+<a href="https://www.instagram.com/grey._.poetries?igsh=MWttdGFzejg0cmk1cg==" target="_blank"><i class="fa-brands fa-square-instagram" target="_blank"></i> Instagram </a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWr_w9D346NSQUY8oNSffHd2lIH3kLz8Rgdx1EF8wl5FSrw/viewform?usp=sf_link" target="_blank"><i class="fa-solid fa-clipboard"></i> Order Form </a>
+</div>
+
+<div class="footerNav">
+<ul>
+<li><a href=""> Home </a></li>
+<li><a href="bestseller.html"> Best Seller </a></li>
+<li><a href="fictions.html"> Fictions </a></li>
+<li><a href="newarrivals.html"> New Arrivals </a></li>
+<li><a href="aboutus.html"> About </a></li>
+<li><a href="contact.html"> Contact </a></li>
+</ul>
+</div>
+
+<div class="footerBottom"> 
+<p>Copyright @2024; <span> Lost Chapters of World.</span> All Right Reserved!</p>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+navbar.classList.toggle('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+searchForm.classList.toggle('active');
+navbar.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let cartItem = document.querySelector('.cart-items-container');
+
+document.querySelector('#cart-btn').onclick = () =>{
+cartItem.classList.toggle('active');
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+}
+
+window.onscroll = () => {
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+ var swiper = new Swiper(".arrivals-slider", {
+      spaceBetween: 10,
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+</script>
+
+
+
+</body>
+</html>

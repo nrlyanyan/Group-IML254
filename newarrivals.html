@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device=width, initial-scale=1.0">
+<title>Lost Chapters Of Worlds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link href="https://fonts.googleapis.com/css2?family=Afacad:wght@500&family=Bebas+Neue&family=Cinzel+Decorative:wght@400;700&family=Crimson+Text:wght@600&family=DM+Serif+Display&family=Delicious+Handrawn&family=Gloria+Hallelujah&family=Josefin+Sans:wght@400;500&family=Jost:wght@500&family=League+Spartan:wght@500&family=Love+Ya+Like+A+Sister&family=Merienda&family=Nanum+Pen+Script&family=PT+Serif&family=Poppins:wght@600&family=Redressed&family=Rouge+Script&family=Schoolbell&family=Silkscreen&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="style.css">
+</head>
+<style>
+:root{
+--main-color: #d3ad7f;
+--black: #13131a;
+--bg: #010103;
+--border: .1rem solid rgba(255,255,255,.3);
+}
+
+*{
+margin:0; padding:0;
+box-sizing: border-box;
+outline: none; border: none;
+text-decoration: none;
+text-transform: capitalize;
+transition: .2s linear;
+}
+
+html{
+font-size: 62.5%;
+scroll-behavior: smooth;
+scroll-padding-top: 9rem;
+overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+width: .8rem;
+}
+
+html::-webkit-scrollbar-track{
+background: transparent;
+}
+
+html::-webkit-scrollbar-thumb{
+background: #fff;
+border-radius: 5rem;
+}
+
+section{
+padding: 5rem 9%;
+}
+
+body{
+background: #EAD3BA;
+}
+
+.btn{
+margin-top: 1rem;
+display: inline-block;
+padding: .9rem 3rem;
+font-size: 1.7rem;
+color: #fff;
+background: var(--main-color);
+cursor: pointer;
+}
+
+.btn:hover{
+letter-spacing: .2rem;
+}
+
+.header{
+background: var(--bg);
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1.5rem 7%;
+border-bottom: var(--border);
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 1000;
+}
+
+.header .logo img{
+height: 6rem;
+}
+
+.header .navbar ul{
+list-style: none;
+margin: 0 1rem;
+font-size: 1rem;
+color: #fff;
+font-family: 'Cinzel Decorative', serif;
+font-weight: bold;
+}
+
+.header .navbar ul li{
+position: relative;
+float: left;
+}
+
+header .navbar ul li a{
+font-size: 15px;
+padding: 15px;
+color: white;
+display: block;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem
+}
+
+.header .navbar ul li a.active{
+color: var(--main-color);
+border-bottom: .1rem solid var(--main-color);
+padding-bottom: .5rem;
+}
+
+header .navbar ul li ul{
+position: absolute;
+left: 0;
+width: 200px;
+background: var(--bg);
+display: none;
+}
+
+header .navbar ul li ul li{
+width: 100%;
+border-top: 1px solid rgba(0,0,0,.1);
+}
+
+header .navbar ul li ul li ul{
+left: 200px;
+top: 0;
+}
+
+header .navbar ul li:focus-within > ul,
+header .navbar ul li:hover > ul{
+display: initial;
+}
+
+.header .icons div{
+font-size: 2.5rem;
+color: #fff;
+cursor: pointer;
+margin-left: 2rem;
+}
+
+.header .icons div:hover{
+color:var(--main-color);
+}
+
+#menu-btn{
+display: none;
+}
+
+.header .search-form{
+position: absolute;
+top: 115%; right: 7%;
+background: #fff;
+width: 50rem;
+height: 5rem;
+display: flex;
+align-items: center;
+transform: scaleY(0);
+transform-origin: top;
+}
+
+.header .search-form.active{
+transform: scaleY(1);
+}
+
+.header .search-form input{
+height: 100%;
+width: 100%;
+font-size: 1.6rem;
+color: var(--black);
+padding: 1rem;
+text-transform: none;
+}
+
+.header .search-form label{
+cursor: pointer;
+font-size: 2.2rem;
+margin-right: 1.5rem;
+color: var(--black);
+}
+
+.header .search-form label:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container{
+position: absolute;
+top: 100%; right: -100%;
+height: calc(100vh - 9.5rem);
+width: 35rem;
+background: #fff;
+padding: 0 1.5rem;
+}
+
+.header .cart-items-container.active{
+right:0;
+}
+
+.header .cart-items-container .cart-item{
+position: relative;
+margin: 2rem 0;
+display: flex;
+align-items: center;
+gap: 1.5rem;
+}
+
+.header .cart-items-container .cart-item .fa-xmark{
+position: absolute;
+top: 1rem; right: 1rem;
+font-size: 2rem;
+cursor: pointer;
+color: var(--black);
+}
+
+.header .cart-items-container .cart-item .fa-xmark:hover{
+color: var(--main-color);
+}
+
+.header .cart-items-container .cart-item img{
+height: 7rem;
+}
+
+.header .cart-items-container .cart-item .content h3{
+font-size: 1.8rem;
+color: var(--black);
+padding-bottom: .5rem;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .cart-item .content .price{
+font-size: 1.4rem;
+color: #BC9779;
+font-family: 'Josefin Sans', sans-serif;
+}
+
+.header .cart-items-container .btn{
+margin-top: 11rem;
+width: 100%;
+text-align: center;
+font-family: 'Poppins', sans-serif;
+}
+
+.home{
+background: url(bg7.jpg) no-repeat;
+background-size: cover;
+background-position: center;
+}
+
+.home .row{
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+.home .row .content{
+flex: 1 1 42rem;
+}
+
+.home .row .books-slider{
+flex: 1 1 42rem;
+text-align: center;
+margin-top: 10rem;
+}
+
+.home .row .books-slider a img{
+height: 18rem;
+}
+
+.home .row .books-slider a:hover img{
+transform: scale(.9);
+}
+
+.home .row .books-slider .stand{
+width: 90%;
+margin-top: -7rem;
+opacity: 0.9;
+}
+
+.home .row .content h3{
+color: #fff;
+font-size: 7rem;
+font-family: 'Redressed', cursive;
+}
+
+.home .row .content p{
+color: #F1AB60;
+font-size: 2rem;
+line-height: 2;
+padding: 1rem 0;
+font-family: 'Crimson Text', serif;
+text-transform: none;
+}
+
+.heading{
+text-align: center;
+margin-bottom: 4rem;
+position: relative;
+}
+
+.heading::before{
+content: '';
+position: absolute;
+top: 50%; left:0;
+transform: translateY(-50%);
+width: 100%;
+height:.01rem;
+background: rgba(0,0,0,.1);
+z-index: -1;
+}
+
+.heading span{
+font-size: 2.8rem;
+padding: .5rem 2rem;
+color: var(--black);
+background: #fff;
+border: var(--border);
+font-family: 'Cinzel Decorative', serif;
+}
+
+.arrivals .box-container{
+display: flex;
+flex-wrap: wrap;
+gap: 1.5rem;
+}
+
+.arrivals .box-container .box{
+flex: 1 1 25rem;
+box-shadow: 0 .5rem 1.5rem rgba(0,0,0,.1);
+border-radius: .5rem;
+border: .1rem solid rgba(0,0,0,.1);
+position: relative;
+background-color: #fff;
+}
+
+.arrivals .box-container .box .discount{
+position: absolute;
+top: 1rem; left: 1rem;
+padding: .7rem 1rem;
+font-size: 1.5rem;
+color: #B89471;
+background: #F1E5D8;
+z-index: 1;
+border-radius: .5rem;
+}
+
+.arrivals .box-container .box .image{
+position: relative;
+text-align: center;
+padding-top: 2rem;
+overflow: hidden;
+}
+
+.arrivals .box-container .box .image img{
+height: 17rem;
+width: 12rem;
+}
+
+.arrivals .box-container .box:hover .image img{
+transform: scale(1.1);
+}
+
+.arrivals .box-container .box .image .icons{
+position: absolute;
+bottom: -7rem; left:0; right:0;
+display: flex;
+}
+
+.arrivals .box-container .box:hover .image .icons{
+bottom: 0;
+}
+
+.arrivals .box-container .box .image .icons a{
+height: 5rem;
+line-height: 5rem;
+font-size: 1.5rem;
+width: 50%;
+background: #d3ad7f;
+color: #fff;
+}
+
+.arrivals .box-container .box .image .icons .cart.btn{
+border-left: .1rem solid #fff7;
+border-right: .1rem solid #fff7;
+width: 100%;
+}
+
+.arrivals .box-container .box .image .icons a:hover{
+background: #333;
+}
+
+.arrivals .box-container .box .content{
+padding: 2rem;
+text-align: center;
+font-family: 'Poppins', sans-serif;
+}
+
+.arrivals .box-container .box .content h3{
+font-size: 1.6rem;
+color: #333;
+}
+
+.arrivals .box-container .box .content .price{
+font-size: 1.5rem;
+color: black;
+font-weight: bolder;
+padding-top: 1rem;
+}
+
+.arrivals .box-container .box .content .price span{
+font-size: 1.3rem;
+color: #999;
+font-weight: lighter;
+text-decoration: line-through;
+}
+
+.footerContainer{
+margin-top: 7rem;
+width: 100%;
+padding: 30px 30px 20px;
+background-color: #000;
+}
+
+.footerContainer .footerNav{
+margin: 20px 0;
+margin-bottom: 5px;
+}
+
+.footerContainer .footerNav ul{
+display: flex;
+justify-content: center;
+list-style-type: nondisc;
+}
+
+.footerContainer .footerNav ul li a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 2.2em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerNav ul li a:hover{
+opacity: 1;
+}
+
+.footerContainer .box{
+display: flex;
+justify-content: center;
+}
+
+.footerContainer .box a{
+color: white;
+margin: 20px;
+text-decoration: none;
+font-size: 1.8em;
+opacity: 0.9;
+transition: 0.5s;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .box a i{
+color: #57AF52;
+padding-right: .7rem;
+}
+
+.footerContainer .box a:hover i{
+color: #E8940A;
+transition: 0.5s;
+}
+
+.footerContainer .footerBottom{
+padding: 20px;
+text-align: center;
+}
+
+.footerContainer .footerBottom p{
+color: white;
+font-size: 1.8em;
+font-family: 'Afacad', sans-serif;
+}
+
+.footerContainer .footerBottom span{
+color: #FBC73B;
+font-size: 1em;
+font-family: 'Afacad', sans-serif;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+html{
+font-size: 55%;
+}
+
+.header{
+padding: 1.5rem 2rem;
+}
+
+section{
+padding: 3rem 2rem;
+}
+}
+
+@media (max-width:768px){
+#menu-btn{
+display: inline-block;
+}
+
+.header .navbar{
+position: absolute;
+top:100%; right: -100%;
+background: #fff;
+width: 30rem;
+height: calc(200vh - 9.5rem);
+}
+
+.header .navbar.active{
+right: 0;
+}
+
+.header .navbar ul li{
+width: 100%;
+}
+
+.header .navbar ul li a{
+color: black;
+width: 100%;
+}
+
+.header .navbar ul li a:hover{
+color: var(--main-color);
+width: 100%;
+}
+
+.header .navbar ul li ul{
+position: relative;
+width: 100%;
+color: #fff;
+}
+
+.header .navbar ul li ul li{
+background: #EACAA6;
+}
+
+.header .navbar ul li ul li a{
+color: #333;
+}
+
+.header .navbar ul li ul li a:hover{
+color: #fff;
+}
+
+.header .navbar ul li ul li ul{
+width: 100%;
+left: 0;
+}
+
+.header .search-form{
+width: 90%;
+right: 2rem;
+}
+
+.home{
+background-position: left;
+justify-content: center;
+text-align: center;
+}
+
+.home .row .content{
+text-align-center;
+}
+
+.home .row .content h3{
+margin-top: 14rem;
+font-size: 8rem;
+}
+
+.home .row .books-slider a img{
+height: 25rem;
+}
+.footerContainer{
+width: 100%;
+text-align: center;
+}
+.footerContainer .footerNav ul{
+flex-direction: column;
+}
+.footerContainer .footerNav ul li{
+width: 100%;
+text-align: center;
+margin 8px;
+}
+.footerContainer .box a{
+color: white;
+margin: 2%;
+padding-top: 2rem;
+}
+}
+
+@media (max-width:450px){
+html{
+font-size: 50%;
+}
+.heading h1{
+font-size: 3rem;
+}
+.arrivals .box-container .content{
+grid-template-columns: 1fr;
+}
+.arrivals .box container .box .content h3{
+font-size: 12px;
+}
+.footerContainer{
+width: 100%;
+text-align: center;
+}
+}
+
+</style>
+<body>
+
+<header class="header">
+
+<a href="#" class="logo">
+<img src="logo2.png" alt="">
+</a>
+
+<nav class="navbar">
+<ul>
+<li><a href="index.html">Home +</a>
+<ul>
+<li><a href="#whychooseus?">For Book Lovers</a></li>
+<li><a href="#collectionlist">Collection List</a></li>
+<li><a href="#featuredbooks">Featured Books</a></li>
+<li><a href="#specialday">Special Day, Special Book</a></li>
+</ul>
+</li>
+<li><a href="bestseller.html">Best Seller +</a>
+<ul>
+<li><a href="#top5">Top 5 Best Seller</a></li>
+<li><a href="#book">Book of the Year</a></li>
+<li><a href="#author">Author of the Year</a></li>
+</ul>
+</li>
+<li><a href="fictions.html">Fictions +</a>
+<ul>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#horror">Horror</a></li>
+<li><a href="#mystery">Mystery</a></li>
+<li><a href="#thriller">Thriller</a></li>
+<li><a href="#scifi">Sci-Fi</a></li>
+<li><a href="#dystopian">Dystopian</a></li>
+<li><a href="#action">Action</a></li>
+</ul>
+</li>
+<li><a href="#"class="active">New Arrivals +</a>
+<ul>
+<li><a href="#scifi">Science Fiction</a></li>
+<li><a href="#romance">Romance</a></li>
+<li><a href="#fantasy">Fantasy</a></li>
+<li><a href="#domestic">Domestic Fiction</a></li>
+<li><a href="#literary">Literary</a></li>
+</ul>
+</li>
+<li><a href="aboutus.html">About Us +</a>
+<ul>
+<li><a href="#prologue">Prologue</a></li>
+<li><a href="#ourteam">Our Team</a></li>
+</ul>
+</li>
+<li><a href="contact.html">Contact +</a>
+<ul>
+<li><a href="#messenger">Messenger Owl</a></li>
+<li><a href="#gform">Google Form</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+
+<div class="icons">
+<div class="fa-solid fa-magnifying-glass" id="search-btn"></div>
+<div class="fa-solid fa-cart-shopping" id="cart-btn"></div>
+<div class="fa-solid fa-bars" id="menu-btn"></div>
+</div>
+
+<div class="search-form">
+<input type="search" id="search-box" placeholder="search here...">
+<label for="search-box" class="fa-solid fa-magnifying-glass"></label>
+</div>
+
+<div class="cart-items-container">
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="romance8.jpg" alt="">
+<div class="content">
+<h3>Archer's Voice</h3>
+<div class="price">RM38.01</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="fantasy6.jpg" alt="">
+<div class="content">
+<h3>Powerless</h3>
+<div class="price">RM60.00</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="horror3.jpg" alt="">
+<div class="content">
+<h3>Naomi's Room</h3>
+<div class="price">RM45.10</div>
+</div>
+</div>
+
+<div class="cart-item">
+<span class="fa-solid fa-xmark"></span>
+<img src="mystery5.jpg" alt="">
+<div class="content">
+<h3>Local Woman Missing</h3>
+<div class="price">RM45.00</div>
+</div>
+</div>
+<a href="#" class="btn">checkout now</a>
+</div>
+
+</header>
+
+<section class="home" id="home">
+<div class="row">
+<div class="content">
+<h3>New Arrivals!</h3>
+<p>Our latest titles are listed here, we add to the list<br>a few times times per week, so this is where you’ll find them.</p>
+</div>
+
+<div class="swiper books-slider">
+<div class="swiper-wrapper">
+<a href="#" class="swiper-slide"><img src="book45.jpg" alt=""></a>
+<a href="#" class="swiper-slide"><img src="book51.jpg" alt=""></a>
+<a href="#" class="swiper-slide"><img src="book53.jpg" alt=""></a>
+<a href="#" class="swiper-slide"><img src="book57.jpg" alt=""></a>
+<a href="#" class="swiper-slide"><img src="book59.jpg" alt=""></a>
+<a href="#" class="swiper-slide"><img src="book62.jpg" alt=""></a>
+</div>
+<img src="stand2.png" class="stand" alt="">
+</div>
+
+</div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading"><a name="scifi"><span>Science Fiction</span></a></h1>
+<div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="science1.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Left Hand of Darkness</h3>
+                <div class="price"> RM84.95 <span>RM150.43</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+            <div class="image">
+                <img src="science2.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Hyperion</h3>
+                <div class="price"> RM42.50 <span>RM56.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="science3.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Jurassic Park</h3>
+                <div class="price"> RM46.90 <span>RM84.95</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="science4.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Network Effect</h3>
+                <div class="price"> RM95.90 <span>RM99.99</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-7%</span>
+            <div class="image">
+                <img src="science5.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>I Am Number Four</h3>
+                <div class="price"> RM50.43 <span>RM72.59</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="science6.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Deep</h3>
+                <div class="price"> RM42.59 <span>RM95.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="science7.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Light From Uncommon Starts</h3>
+                <div class="price"> RM129.79 <span>RM139.79</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="science8.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Dead Silence</h3>
+                <div class="price"> RM99.01 <span>RM119.01</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading"><a name="romance"><span>Romance</span></a></h1>
+<div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="rom1.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Lotus Eater</h3>
+                <div class="price"> RM25.00 <span>RM50.43</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+            <div class="image">
+                <img src="rom2.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Star</h3>
+                <div class="price"> RM16.00 <span>RM46.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="rom3.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Late Nights on Air</h3>
+                <div class="price"> RM84.95 <span>RM84.95</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="rom4.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Safe Haven</h3>
+                <div class="price"> RM10.00 <span>RM42.50</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-7%</span>
+            <div class="image">
+                <img src="rom5.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Sisters</h3>
+                <div class="price"> RM20.90 <span>RM42.59</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="rom6.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>First Comes Love</h3>
+                <div class="price"> RM65.95 <span>RM95.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="rom7.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Beside A Burning Sea</h3>
+                <div class="price"> RM74.43 <span>RM89.79</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading"><a name="fantasy"><span>Fantasy</span></a></h1>
+<div class="box-container">
+
+        <div class="box">
+            <span class="discount">-3%</span>
+            <div class="image">
+                <img src="fant1.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Fifth Season</h3>
+                <div class="price"> RM67.37 <span>RM70.43</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+            <div class="image">
+                <img src="fant2.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Children of Blood & Bone</h3>
+                <div class="price"> RM41.90 <span>RM56.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="fant3.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Fellowship of the Ring</h3>
+                <div class="price"> RM57.95 <span>RM84.95</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="fant4.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Get In Trouble</h3>
+                <div class="price"> RM17.90 <span>RM42.50</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-7%</span>
+            <div class="image">
+                <img src="fant5.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Black Tides of Heaven</h3>
+                <div class="price"> RM85.31 <span>RM92.59</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="fant6.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Lord of the Rings</h3>
+                <div class="price"> RM82.48 <span>RM95.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="fant7.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Night Circus</h3>
+                <div class="price"> RM79.13 <span>RM89.79</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="fant8.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Ember in the Ashes</h3>
+                <div class="price"> RM59.34 <span>RM79.20</span></div>
+            </div>
+        </div>
+    
+	    <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="fant9.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Alice's Adventures in Wonderland</h3>
+                <div class="price"> RM12.90 <span>RM129.79</span></div>
+            </div>
+        </div>
+		
+		<div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="fant10.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Angeology</h3>
+                <div class="price"> RM122.79 <span>RM129.79</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading"><a name="domestic"><span>Domestic Fiction</span></a></h1>
+<div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="dom1.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Cracy Rich Asians</h3>
+                <div class="price"> RM37.95 <span>RM50.43</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+            <div class="image">
+                <img src="dom2.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Out Of The Blue</h3>
+                <div class="price"> RM46.31 <span>RM50.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="dom3.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Help Me, Jacques Cousteau</h3>
+                <div class="price"> RM10 <span>RM24.95</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="dom4.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Cinderella Pact</h3>
+                <div class="price"> RM20.69 <span>RM42.50</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-7%</span>
+            <div class="image">
+                <img src="dom5.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Spellman Files</h3>
+                <div class="price"> RM10 <span>RM42.59</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="dom6.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Danielle Steel</h3>
+                <div class="price"> RM99.90 <span>RM110.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="dom7.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Truths I Never Told You</h3>
+                <div class="price"> RM67.44 <span>RM79.79</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="dom8.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>All the Ugly & Wonderful Things</h3>
+                <div class="price"> RM84.23 <span>RM99.01</span></div>
+            </div>
+        </div>
+    
+	    <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="dom9.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Wrong Place Wrong Time</h3>
+                <div class="price"> RM49.69 <span>RM60.50</span></div>
+            </div>
+        </div>
+		
+		<div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="dom10.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Do No Harm</h3>
+                <div class="price"> RM93.18 <span>RM99.79</span></div>
+            </div>
+        </div>
+		
+		<div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="dom11.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>A Light in the Forest</h3>
+                <div class="price"> RM120.97 <span>RM129.79</span></div>
+            </div>
+        </div>
+		
+		<div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="dom12.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Keeper of Stories</h3>
+                <div class="price"> RM13.92 <span>RM129.79</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="arrivals" id="arrivals">
+<h1 class="heading"><a name="literary"><span>Literary</span></a></h1>
+<div class="box-container">
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="literary1.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Me and Kaminski</h3>
+                <div class="price"> RM8.29 <span>RM20.43</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-30%</span>
+            <div class="image">
+                <img src="literary2.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>More Than it Hurts You</h3>
+                <div class="price"> RN116.50 <span>RM120.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-10%</span>
+            <div class="image">
+                <img src="literary3.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Secret History</h3>
+                <div class="price"> RM33.19 <span>RM44.95</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-15%</span>
+            <div class="image">
+                <img src="literary4.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Station Eleven</h3>
+                <div class="price"> RM97.74 <span>RM132.50</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-7%</span>
+            <div class="image">
+                <img src="literary5.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Covenience Store Woman</h3>
+                <div class="price"> RM25 <span>RM42.59</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-20%</span>
+            <div class="image">
+                <img src="literary6.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Goldfinch</h3>
+                <div class="price"> RM48.79 <span>RM65.90</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="literary7.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Trust</h3>
+                <div class="price"> RM71.50 <span>RM129.79</span></div>
+            </div>
+        </div>
+
+        <div class="box">
+            <span class="discount">-5%</span>
+            <div class="image">
+                <img src="literary8.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Covenant of Water</h3>
+                <div class="price"> RM57.39 <span>RM65.01</span></div>
+            </div>
+        </div>
+    
+	    <div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="literary9.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>The Heaven & Earth Grocery Store</h3>
+                <div class="price"> RM130.30 <span>RM143.79</span></div>
+            </div>
+        </div>
+		
+		<div class="box">
+            <span class="discount">-17%</span>
+            <div class="image">
+                <img src="literary10.jpg" alt="" width="20%">
+                <div class="icons">
+                    <a href="#" class="fa-solid fa-heart"></a>
+                    <a href="#" class="cart-btn">add to cart</a>
+                    <a href="#" class="fa-solid fa-share"></a>
+                </div>
+            </div>
+            <div class="content">
+                <h3>Frankenstein</h3>
+                <div class="price"> RM66.98 <span>RM99.79</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="footerContainer">
+<div class="box">
+<a href="#"> <i class="fa-solid fa-phone"></i> +60 11-2345 6789 </a>
+<a href="#"> <i class="fa-solid fa-envelope"></i> LCOWbookstore@gmail.com </a>
+<a href="https://www.instagram.com/grey._.poetries?igsh=MWttdGFzejg0cmk1cg==" target="_blank"><i class="fa-brands fa-square-instagram" target="_blank"></i> Instagram </a>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfFWr_w9D346NSQUY8oNSffHd2lIH3kLz8Rgdx1EF8wl5FSrw/viewform?usp=sf_link" target="_blank"><i class="fa-solid fa-clipboard"></i> Order Form </a>
+</div>
+
+<div class="footerNav">
+<ul>
+<li><a href=""> Home </a></li>
+<li><a href="bestseller.html"> Best Seller </a></li>
+<li><a href="fictions.html"> Fictions </a></li>
+<li><a href="newarrivals.html"> New Arrivals </a></li>
+<li><a href="aboutus.html"> About </a></li>
+<li><a href="contact.html"> Contact </a></li>
+</ul>
+</div>
+
+<div class="footerBottom"> 
+<p>Copyright @2024; <span> Lost Chapters of World.</span> All Right Reserved!</p>
+</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+let navbar = document.querySelector('.navbar');
+
+document.querySelector('#menu-btn').onclick = () =>{
+navbar.classList.toggle('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let searchForm = document.querySelector('.search-form');
+
+document.querySelector('#search-btn').onclick = () =>{
+searchForm.classList.toggle('active');
+navbar.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+let cartItem = document.querySelector('.cart-items-container');
+
+document.querySelector('#cart-btn').onclick = () =>{
+cartItem.classList.toggle('active');
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+}
+
+window.onscroll = () => {
+navbar.classList.remove('active');
+searchForm.classList.remove('active');
+cartItem.classList.remove('active');
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+ var swiper = new Swiper(".books-slider", {
+      loop: true,
+      centeredSlides: true,
+      autoplay: {
+        delay: 9500,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        0: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        },
+        1024: {
+          slidesPerView: 3,
+        },
+      },
+    });
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
